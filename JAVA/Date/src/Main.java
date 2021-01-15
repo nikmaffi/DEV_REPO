@@ -1,9 +1,9 @@
-import inputcli.InputCLI;
+import command.input.system.CommandInputSystem;
 
 public class Main {
 	public static void main(String[] args) {
 		try {
-			InputCLI userInput = new InputCLI();
+			CommandInputSystem userInput = new CommandInputSystem();
 			DateTime dt1;
 			DateTime dt2;
 			
