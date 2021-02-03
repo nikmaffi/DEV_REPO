@@ -17,8 +17,8 @@ public class Main extends PApplet {
 	
 	public void setup() {
 		try {
-			this.cb = new ColpisciBersaglio(this);
-			this.punteggio = new Text(this, "Pt: 0", createFont("Alien Encounters", 20), 20, 0xff00ff00, false, 40, 40, this.width, this.height);
+			this.cb = new ColpisciBersaglio();
+			this.punteggio = new Text(this, "Pt: 0", createFont("Alien Encounters", 20), 20, 0xff00ff00, false, 40, 40);
 			
 			this.cb.aggiungiBersaglio(new BersaglioGrafico(this, Main.DIM_BERSAGLIO, Main.DIM_BERSAGLIO*2, Main.DIM_BERSAGLIO*2, (int)this.random(10, 100)));
 			this.cb.aggiungiBersaglio(new BersaglioGrafico(this, Main.DIM_BERSAGLIO, Main.SCREEN_WIDTH - Main.DIM_BERSAGLIO*2, Main.SCREEN_HEIGHT - Main.DIM_BERSAGLIO*2, (int)this.random(10, 100)));

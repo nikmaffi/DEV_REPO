@@ -1,6 +1,7 @@
 import processing.core.*;
 
-class Text extends Graphics {
+class Text {
+	private PApplet g;
     private String text;
     private PFont font;
     private float size;
@@ -8,16 +9,13 @@ class Text extends Graphics {
     private boolean centerAlignment;
     private float x;
     private float y;
-    private float screenWidth;
-    private float screenHeight;
     
-    public Text(PApplet g, String text, PFont font, float size, int textColor, boolean centerAlignment, float x, float y, float screenWidth, float screenHeight) throws Exception {
-        super(g);
-    	
+    public Text(PApplet g, String text, PFont font, float size, int textColor, boolean centerAlignment, float x, float y) throws Exception {    	
     	if(size <= 0) {
             throw new Exception("Errore: Font size must be greater than 0!");
         }
         
+    	this.g = g;
         this.text = text;
         this.font = font;
         this.size = size;
@@ -25,8 +23,6 @@ class Text extends Graphics {
         this.centerAlignment = centerAlignment;
         this.x = x;
         this.y = y;
-        this.screenWidth = screenWidth;
-        this.screenHeight = screenHeight;
     }
     
     public void setText(String text) {
@@ -35,14 +31,14 @@ class Text extends Graphics {
     
     public void write() {
         if(this.centerAlignment) {
-            textAlign(CENTER, CENTER);
-            this.x = (float)(this.screenWidth / 2.0);
-            this.y = (float)(this.screenHeight / 2.0);
+            this.g.textAlign(PApplet.CENTER, PApplet.CENTER);
+            this.x = (float)(this.g.width / 2.0);
+            this.y = (float)(this.g.height / 2.0);
         }
         
-        super.g.textFont(this.font);
-        super.g.textSize(this.size);
-        super.g.fill(this.textColor);
-        super.g.text(this.text, this.x, this.y);
+        this.g.textFont(this.font);
+        this.g.textSize(this.size);
+        this.g.fill(this.textColor);
+        this.g.text(this.text, this.x, this.y);
     }
 }

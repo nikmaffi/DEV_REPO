@@ -1,15 +1,11 @@
-import processing.core.*;
-
-public class ColpisciBersaglio extends Graphics {
+public class ColpisciBersaglio {
 	private static final int MAX = 100;
 	private static long istanze = 0;
 	private BersaglioGrafico[] bersagli;
 	private int quanti;
 	private long punteggioTotale;
 	
-	public ColpisciBersaglio(PApplet g) {
-		super(g);
-		
+	public ColpisciBersaglio() {
 		this.istanze++;
 		this.bersagli = new BersaglioGrafico[ColpisciBersaglio.MAX];
 		this.quanti = 0;

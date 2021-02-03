@@ -1,14 +1,10 @@
-import processing.core.*;
-
-public class Bersaglio extends Graphics {
+public class Bersaglio {
 	protected float r;
 	protected float x;
 	protected float y;
 	protected int punteggio;
 	
-	public Bersaglio(PApplet g, float r, float x, float y, int punteggio) throws Exception {
-		super(g);
-		
+	public Bersaglio(float r, float x, float y, int punteggio) throws Exception {		
 		if(r <= 0) {
 			throw new Exception("Errore: Il raggio deve essere maggiore di 0!");
 		}
@@ -19,8 +15,8 @@ public class Bersaglio extends Graphics {
 		this.punteggio = punteggio;
 	}
 	
-	public Bersaglio(PApplet g, float r, int punteggio, int color) throws Exception {
-		this(g, r, 0, 0, punteggio);
+	public Bersaglio(float r, int punteggio, int color) throws Exception {
+		this(r, 0, 0, punteggio);
 	}
 	
 	public float getR() {
